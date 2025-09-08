@@ -19,6 +19,7 @@ prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
+#sequential chains
 chain = prompt | get_llm() | StrOutputParser()
 
 # res = chain.invoke({"text": "What is 2+2?"})

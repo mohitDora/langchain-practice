@@ -6,7 +6,10 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "langchain",
+    "langchain-community",
     "langchain-groq",
     "python-dotenv",
     "pydantic",
+    "langchain-google-genai",
+    "langchain-chroma"
     ]
