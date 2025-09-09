@@ -1,5 +1,5 @@
 from langchain_community.document_loaders import TextLoader
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_google_genai.embeddings import GoogleGenerativeAIEmbeddings
 
@@ -11,7 +11,7 @@ load_dotenv()
 
 current_dir = Path(__file__).resolve().parent.parent
 file_path = Path.joinpath(current_dir.parent, "books", "book1.txt")
-persistent_directory = Path.joinpath(current_dir.parent, "chroma_db")
+persistent_directory = Path.joinpath(current_dir.parent, "db", "chroma_db")
 
 if not os.path.exists(persistent_directory):
     print("Directory doesn't exist. Creating...")
