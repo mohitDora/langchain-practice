@@ -2,7 +2,7 @@
 # StrOutputParser, CommaSeparatedListOutputParser, JSONOutputParser, PydanticOutputParser
 
 from pydantic import BaseModel
-from llm_config import get_llm
+from config.llm_config import get_llm
 from langchain_core.output_parsers import PydanticOutputParser, JsonOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 

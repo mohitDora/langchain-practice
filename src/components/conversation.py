@@ -1,4 +1,4 @@
-from llm_config import get_llm
+from config.llm_config import get_llm
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
 llm = get_llm()

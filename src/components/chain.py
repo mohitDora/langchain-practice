@@ -1,7 +1,7 @@
 # anything that can be called with input and returns ouptut - Runnables
 # RunnableLambada wraps any function into a runnable
 
-from llm_config import get_llm
+from config.llm_config import get_llm
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.schema.runnable import (

@@ -9,9 +9,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-current_dir = Path(__file__).resolve().parent
+current_dir = Path(__file__).resolve().parent.parent
 file_path = Path.joinpath(current_dir.parent, "books", "book1.txt")
-persistent_directory = Path.joinpath(current_dir.parent, "db", "chroma_db")
+persistent_directory = Path.joinpath(current_dir.parent, "chroma_db")
 
 if not os.path.exists(persistent_directory):
     print("Directory doesn't exist. Creating...")
@@ -19,7 +19,7 @@ if not os.path.exists(persistent_directory):
     if not os.path.exists(file_path):
         print(f"File doesn't exist. {file_path}")
         raise FileNotFoundError("File doesn't exist")
-    
+
     loader = TextLoader(str(file_path), encoding="utf-8")
     documents = loader.load()
 
@@ -30,11 +30,11 @@ if not os.path.exists(persistent_directory):
 
     # print("Docs", docs)
 
-    embedding_model = GoogleGenerativeAIEmbeddings(
-        model="models/embedding-001"
-    )
+    embedding_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
-    vectorstore = Chroma.from_documents(docs, embedding_model, persist_directory=str(persistent_directory))
+    vectorstore = Chroma.from_documents(
+        docs, embedding_model, persist_directory=str(persistent_directory)
+    )
 
     print("Vectorstore created")
 else:
